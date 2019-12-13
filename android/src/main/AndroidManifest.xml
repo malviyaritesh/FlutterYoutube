@@ -3,9 +3,10 @@
 xmlns:tools="http://schemas.android.com/tools"
     package="io.github.ponnamkarthik.flutteryoutube">
 
-    <application >
+    <application>
         <activity
                 android:name=".PlayerActivity"
+                android:screenOrientation="landscape"
                 android:configChanges="orientation|screenSize|keyboardHidden|navigation">
         </activity>
     </application>
