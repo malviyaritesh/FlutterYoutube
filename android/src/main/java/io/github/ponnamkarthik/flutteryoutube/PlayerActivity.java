@@ -28,6 +28,7 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
     private boolean isFullScreen = false;
     private boolean autoPlay = false;
     private boolean goFullScreen = false;
+    private boolean showFullScreenButton = true;
     private int appBarColor;
     private int backgroundColor;
 
@@ -57,6 +58,7 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
         videoId = getIntent().getStringExtra("videoId");
         goFullScreen = getIntent().getBooleanExtra("fullScreen", false);
         autoPlay = getIntent().getBooleanExtra("autoPlay", false);
+        showFullScreenButton = getIntent().getBooleanExtra("showFullScreenButton", true);
 
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         youTubeView.initialize(API_KEY, this);
@@ -80,6 +82,8 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
             if(goFullScreen) {
                 isFullScreen = goFullScreen;
             }
+
+            player.setShowFullscreenButton(showFullScreenButton);
 
             player.setOnFullscreenListener(new YouTubePlayer.OnFullscreenListener() {
                 @Override
